@@ -1,0 +1,9 @@
+@mixin flexVertical(
+    $justify: left,
+    $rowGap: 1vh
+    ){
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    row-gap: $rowGap;
+}
