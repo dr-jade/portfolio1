@@ -1,4 +1,16 @@
-let gal = $("article")[3];
+// sidebar
+$("nav").attr("height", screen.height);
+$("nav").addClass("close");
+if($("body").innerWidth() < 400) $("nav").addClass("narrow");
+$("#handle").on("click", function(){
+    if($("body").innerWidth() > 400) $("nav").toggleClass("close");
+    else{
+        $("nav").toggleClass("narrow");
+    }
+})
+
+// gallery
+let gal = $("article")[6];
 const jsonLoad = async() => {
     const loadData = new Promise((res)=>{
         let xmlReq = new XMLHttpRequest();
@@ -11,8 +23,9 @@ const jsonLoad = async() => {
         (data)=>{
             let links = JSON.parse(data);
             $.each(links, function(idx, val){
-                let img = $(gal).add("<img alt='${idx}'>");
+                let img = $("<img>");
                 img.attr("src", val.src);
+                img.attr("alt", "pic"+idx);
                 $(gal).append(img);
             })
         },

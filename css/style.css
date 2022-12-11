@@ -1,13 +1,16 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;600&display=swap");
 h2 {
   font-size: 32px;
   font-weight: 600;
+  color: #224992;
 }
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Martian Mono", monosapce;
+  font-weight: 200;
 }
 
 html {
@@ -15,11 +18,193 @@ html {
 }
 
 body {
-  background-color: #439A97;
+  min-height: 100%;
+  background-color: #224992;
+  display: flex;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+h2, h4 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (min-width: 200px) {
+  .close {
+    width: 80px;
+    overflow: visible;
+  }
+  .close span {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .close .logo img {
+    height: 40px;
+  }
+  nav {
+    width: 350px;
+    padding-top: 5%;
+    background-color: #ffd302;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    z-index: 5;
+  }
+  nav .logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
+  }
+  nav .logo img {
+    height: 70px;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+  }
+  nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    align-items: flex-start;
+  }
+  nav ul ::-webkit-scrollbar {
+    display: none;
+  }
+  nav ul li {
+    width: 100%;
+    list-style-type: none;
+    position: relative;
+  }
+  nav ul a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #224992;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  nav ul a:hover {
+    box-shadow: inset -4px 0px 8px -3px rgba(0, 0, 0, 0.4);
+    background-color: #ffc815;
+  }
+  nav ul a .arrow {
+    min-width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    transition: all 0.3s ease;
+  }
+  nav ul a span {
+    font-size: 20px;
+  }
+  nav span {
+    font-weight: 600;
+    transition: all 0.4s ease;
+  }
+  main {
+    width: calc(100% - 350px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease;
+  }
+  main h4 {
+    text-align: center;
+  }
+  main header {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+  }
+  main i {
+    padding: 15px;
+    color: #ffd302;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  main > section {
+    padding: 3%;
+    border-radius: 3vh;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
+  }
+  nav ~ main {
+    left: 0;
+    width: calc(100% - 80px);
+  }
+  .about {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
+    align-items: center;
+  }
+  .about p {
+    text-align: center;
+  }
+  .about article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
+    color: whitesmoke;
+  }
+  .about article:last-child {
+    row-gap: 1vh;
+  }
+  .about img {
+    width: 80%;
+    filter: invert(1);
+  }
+  .about a {
+    width: 15vh;
+    padding: 1%;
+    border: 3px solid #ffd302;
+    font-size: 16px;
+    color: #ffd302;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .works {
+    width: 70%;
+  }
+  .works article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: center;
+    position: relative;
+    overflow: auto;
+  }
+  .works img {
+    width: 5px;
+    max-height: 900px;
+  }
+}
+@media (max-width: 400px) {
+  .close.narrow {
+    width: 0;
+  }
+  .close.narrow ~ main {
+    width: 100%;
+    left: 0;
+    z-index: 5;
+  }
 }/*# sourceMappingURL=style.css.map */

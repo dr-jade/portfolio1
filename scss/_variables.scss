@@ -1,12 +1,15 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;600&display=swap');
 
 $defaultFont: 'Martian Mono', monosapce;
-$darkTurq: #439A97;
-$medTurq: #62B6B7;
-$lightTurq: #97DECE;
-$brightTurq: #CBEDD5;
+$deepBlue: #224992;
+$medBlue: #1597d5;
+$lightBlue: #7ee0f8;
+$darkYellow: #ffc815;
+$goldYellow: #ffd302;
 
 h2 {
     font-size: 32px;
     font-weight: 600;
+    color: $deepBlue;
 }

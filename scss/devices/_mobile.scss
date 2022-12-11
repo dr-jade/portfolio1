@@ -1,0 +1,148 @@
+@media (min-width: 200px){
+    // sidebar
+    .close {
+        width: 80px;
+        overflow: visible;
+        span {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .logo img {
+            height: 40px;
+        }
+    }
+    nav {
+        width: 350px;
+        padding-top: 5%;
+        background-color: $goldYellow;
+        @include flexVertical(5vh, flex-start);
+        justify-content: space-between;
+        transition: all 0.5s ease;
+        z-index: 5;
+        .logo {
+            width: 100%;
+            @include flexVertical;
+            img {
+                height: 70px;
+                transition: 0.3s ease;
+                transition-delay: 0.1s;
+            }
+        }
+        ul {
+            width: 100%;
+            height: 100%;
+            @include flexVertical(0, flex-start);
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            li {
+                width: 100%;
+                list-style-type: none;
+                position: relative;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                @include links;
+                transition: all 0.3s ease;
+                &:hover {
+                    box-shadow: inset -4px 0px 8px -3px rgba(0,0,0,.4);
+                    background-color: $darkYellow;
+                }
+                .arrow {
+                    min-width: 80px;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+                    font-size: 30px;
+                    transition: all 0.3s ease;
+                }
+                span {
+                    font-size: 20px;
+                }
+            }
+        }
+        span {
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+    }
+    main {
+        width: calc(100% - 350px);
+        @include flexVertical(5vh);
+        position: relative;
+        transition: all 0.5s ease;
+        h4 {
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: left;
+        }
+        i {
+            padding: 15px;
+            color: $goldYellow;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        > section {
+            padding: 3%;
+            border-radius: 3vh;
+            background-color: whitesmoke;
+            @include flexVertical;
+        }
+    }
+    nav ~ main {
+        left: 0;
+        width: calc(100% - 80px);
+    }
+    // sections
+    .about {
+        background-color: transparent;
+        @include flexVertical(5vh);
+        p {
+            text-align: center;
+        }
+        article {
+            @include flexVertical;
+            color: whitesmoke;
+            &:last-child {
+                row-gap: 1vh;
+            }
+        }
+        img {
+            width:80%;
+            filter: invert(1);
+        }
+        a {
+            width: 15vh;
+            padding: 1%;
+            border: 3px solid $goldYellow;
+            @include links(16px, $goldYellow);
+            @include flexCenter;
+        }
+    }
+    .works {
+        width: 70%;
+        article {
+            @include flexVertical;
+            position: relative;
+            overflow:auto;
+        }
+        img {
+            width: 5px;
+            max-height: 900px;
+        }
+    }
+}
+@media (max-width: 400px){
+    .close.narrow {
+        width: 0;
+    }
+    .close.narrow ~ main {
+        width: 100%;
+        left: 0;
+        z-index: 5;
+    }
+}

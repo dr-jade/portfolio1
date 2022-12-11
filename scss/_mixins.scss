@@ -1,9 +1,35 @@
 @mixin flexVertical(
-    $justify: left,
-    $rowGap: 1vh
-    ){
+    $rowGap: 1vh,
+    $justify: center
+){
     display: flex;
     flex-direction: column;
-    justify-content: $justify;
     row-gap: $rowGap;
+    align-items: $justify;
+}
+
+@mixin flexApart(
+    $justify: space-between,
+    $colGap: 1vh
+){
+    display: flex;
+    justify-content: $justify;
+    column-gap: $colGap;
+}
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin links(
+    $size: 16px,
+    $color: $deepBlue
+){
+    font-size: $size;
+    color: $color;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
 }
