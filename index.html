@@ -105,16 +105,6 @@
         <section class="works" id="works">
             <h2>works</h2>
             <article>
-                <?php
-                    $works = scandir('./img/works');
-                    foreach($works as $idx => $img){
-                        if($work == "." || $work == "..") continue;
-                        $work = "./img/works/$work";
-                        if($idx == 2){
-                            echo "<img src='$work' alt='".$idx-2 ."'>";
-                        }
-                    }
-                ?>
             </article>
         </section>
     </main>
