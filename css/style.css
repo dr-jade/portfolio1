@@ -28,6 +28,19 @@ h2, h4 {
   font-weight: 600;
 }
 
+@media (max-width: 400px) {
+  .close.narrow {
+    width: 0;
+  }
+  .close.narrow .arrow {
+    opacity: 0;
+  }
+  .close.narrow ~ main {
+    width: 100%;
+    left: 0;
+    z-index: 5;
+  }
+}
 @media (min-width: 200px) {
   .close {
     width: 80px;
@@ -37,8 +50,8 @@ h2, h4 {
     opacity: 0;
     pointer-events: none;
   }
-  .close .logo img {
-    height: 40px;
+  .close img {
+    display: none;
   }
   nav {
     width: 350px;
@@ -52,17 +65,13 @@ h2, h4 {
     transition: all 0.5s ease;
     z-index: 5;
   }
-  nav .logo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1vh;
-    align-items: center;
-  }
-  nav .logo img {
-    height: 70px;
-    transition: 0.3s ease;
-    transition-delay: 0.1s;
+  nav .arrow {
+    min-width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    transition: all 0.3s ease-in;
   }
   nav ul {
     width: 100%;
@@ -94,16 +103,16 @@ h2, h4 {
     box-shadow: inset -4px 0px 8px -3px rgba(0, 0, 0, 0.4);
     background-color: #ffc815;
   }
-  nav ul a .arrow {
-    min-width: 80px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    font-size: 30px;
-    transition: all 0.3s ease;
-  }
   nav ul a span {
     font-size: 20px;
+  }
+  nav footer {
+    width: 100%;
+    min-height: 240px;
+    font-size: 14px;
+    -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+    text-orientation: sideways-right;
   }
   nav span {
     font-weight: 600;
@@ -133,6 +142,7 @@ h2, h4 {
     cursor: pointer;
   }
   main > section {
+    width: 90%;
     padding: 3%;
     border-radius: 3vh;
     background-color: whitesmoke;
@@ -141,9 +151,34 @@ h2, h4 {
     row-gap: 1vh;
     align-items: center;
   }
+  main h2 {
+    font-size: 18pt;
+    text-align: center;
+  }
   nav ~ main {
     left: 0;
     width: calc(100% - 80px);
+  }
+  .top {
+    top: 0;
+    right: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: #ffd302;
+    font-weight: 600;
+    font-size: 16px;
+    color: #224992;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    text-align: center;
+    border-radius: 0 0 1vh 1vh;
+    box-shadow: 1px 2px 4px -3px rgba(0, 0, 0, 0.4);
+    z-index: 10;
   }
   .about {
     background-color: transparent;
@@ -182,29 +217,75 @@ h2, h4 {
     justify-content: center;
     align-items: center;
   }
-  .works {
-    width: 70%;
+  .exp {
+    row-gap: 3vh;
   }
-  .works article {
+  .exp article {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5vh;
+    align-items: center;
+  }
+  .exp figure {
     display: flex;
     flex-direction: column;
     row-gap: 1vh;
     align-items: center;
+  }
+  .exp img {
+    height: 40%;
+  }
+  .works {
+    width: 80%;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
     position: relative;
-    overflow: auto;
   }
-  .works img {
-    width: 5px;
-    max-height: 900px;
+  .works h2 {
+    color: #ffd302;
   }
-}
-@media (max-width: 400px) {
-  .close.narrow {
-    width: 0;
-  }
-  .close.narrow ~ main {
+  .gal {
     width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .gal ul {
+    width: 100%;
+    height: 700px;
+    display: inline-block;
+    position: relative;
+    list-style-type: none;
+  }
+  .gal li {
+    height: 800px;
+    line-height: 800px;
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .prev, .next {
+    top: 50%;
+    padding: 16px;
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block;
+    transition: 0.4s ease;
+    position: absolute;
+    z-index: 4;
+    cursor: pointer;
+  }
+  .prev:hover, .next:hover {
+    background-color: black;
+  }
+  .prev {
     left: 0;
-    z-index: 5;
+    border-radius: 0 30px 30px 0;
+  }
+  .next {
+    right: 0;
+    border-radius: 30px 0 0 30px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -1,3 +1,16 @@
+@media (max-width: 400px){
+    .close.narrow {
+        width: 0;
+        .arrow {
+            opacity: 0;
+        }
+    }
+    .close.narrow ~ main {
+        width: 100%;
+        left: 0;
+        z-index: 5;
+    }
+}
 @media (min-width: 200px){
     // sidebar
     .close {
@@ -7,8 +20,8 @@
             opacity: 0;
             pointer-events: none;
         }
-        .logo img {
-            height: 40px;
+        img {
+            display: none;
         }
     }
     nav {
@@ -19,14 +32,13 @@
         justify-content: space-between;
         transition: all 0.5s ease;
         z-index: 5;
-        .logo {
-            width: 100%;
-            @include flexVertical;
-            img {
-                height: 70px;
-                transition: 0.3s ease;
-                transition-delay: 0.1s;
-            }
+        .arrow {
+            min-width: 80px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            transition: all 0.3s ease-in;
         }
         ul {
             width: 100%;
@@ -49,18 +61,17 @@
                     box-shadow: inset -4px 0px 8px -3px rgba(0,0,0,.4);
                     background-color: $darkYellow;
                 }
-                .arrow {
-                    min-width: 80px;
-                    height: 50px;
-                    text-align: center;
-                    line-height: 50px;
-                    font-size: 30px;
-                    transition: all 0.3s ease;
-                }
                 span {
                     font-size: 20px;
                 }
             }
+        }
+        footer {
+            width: 100%;
+            min-height: 240px;
+            font-size: 14px;
+            writing-mode: vertical-rl;
+            text-orientation:sideways-right;
         }
         span {
             font-weight: 600;
@@ -87,15 +98,35 @@
             cursor: pointer;
         }
         > section {
+            width: 90%;
             padding: 3%;
             border-radius: 3vh;
             background-color: whitesmoke;
             @include flexVertical;
         }
+        h2 {
+            font-size: 18pt;
+            text-align: center;
+        }
     }
     nav ~ main {
         left: 0;
         width: calc(100% - 80px);
+    }
+    .top {
+        top: 0;
+        right: 5px;
+        width: 50px;
+        height: 30px;
+        background-color: $goldYellow;
+        font-weight: 600;
+        @include links;
+        @include flexCenter;
+        position: fixed;
+        text-align: center;
+        border-radius: 0 0 1vh 1vh;
+        box-shadow: 1px 2px 4px -3px rgba(0,0,0,.4);
+        z-index: 10;
     }
     // sections
     .about {
@@ -123,26 +154,71 @@
             @include flexCenter;
         }
     }
-    .works {
-        width: 70%;
+    .exp {
         article {
+            @include flexVertical(5vh);
+        }
+        row-gap: 3vh;
+        figure {
             @include flexVertical;
-            position: relative;
-            overflow:auto;
         }
         img {
-            width: 5px;
-            max-height: 900px;
+            height: 40%;
         }
     }
-}
-@media (max-width: 400px){
-    .close.narrow {
-        width: 0;
+
+    // gallery
+    .works {
+        width: 80%;
+        padding: 0;
+        border-radius: 0;
+        background-color: transparent;
+        position: relative;
+        h2 {
+            color: $goldYellow;
+        }
     }
-    .close.narrow ~ main {
+    .gal {
         width: 100%;
+        overflow: hidden;
+        position: relative;
+        ul {
+            width: 100%;
+            height: 700px;
+            display: inline-block;
+            position: relative;
+            list-style-type: none;
+        }
+        li {
+            height: 800px;
+            line-height: 800px;
+            display: inline-block;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+    }
+    .prev, .next {
+        top: 50%;
+        padding: 16px;
+        color: whitesmoke;
+        background-color: rgba(0,0,0,.6);
+        display: block;
+        transition: .4s ease;
+        position: absolute;
+        z-index: 4;
+        cursor: pointer;
+        &:hover {
+            background-color: black;
+        }
+    }
+    .prev {
         left: 0;
-        z-index: 5;
+        border-radius: 0 30px 30px 0;
+    }
+    .next {
+        right: 0;
+        border-radius: 30px 0 0 30px;
     }
 }

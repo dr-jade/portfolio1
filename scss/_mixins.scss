@@ -33,3 +33,14 @@
     text-decoration: none;
     font-weight: 600;
 }
+
+@mixin bgImg(
+    $url,
+    $size: cover,
+    $position: center
+){
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-position: $position;
+}
