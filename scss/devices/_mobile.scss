@@ -4,6 +4,9 @@
         .arrow {
             opacity: 0;
         }
+        footer {
+            opacity: 0;
+        }
     }
     .close.narrow ~ main {
         width: 100%;
@@ -69,6 +72,8 @@
         footer {
             width: 100%;
             min-height: 240px;
+            @include flexVertical(0, flex-end);
+            justify-content: flex-end;
             font-size: 14px;
             writing-mode: vertical-rl;
             text-orientation:sideways-right;
@@ -99,7 +104,7 @@
         }
         > section {
             width: 90%;
-            padding: 3%;
+            padding: 5% 3%;
             border-radius: 3vh;
             background-color: whitesmoke;
             @include flexVertical;
@@ -160,17 +165,62 @@
         }
         row-gap: 3vh;
         figure {
+            @include flexVertical(5vh);
+        }
+        figcaption {
             @include flexVertical;
         }
         img {
-            height: 40%;
+            width: 15vh;
         }
     }
-
+    .lang {
+        row-gap: 5vh;
+        article {
+            width: 100%;
+            @include flexVertical(3vh, flex-start);
+            ul {
+                width: 100%;
+                font-size: 14px;
+                @include flexVertical(1vh, flex-start);
+            }
+            li {
+                width: 100%;
+                display: flex;
+                text-transform: capitalize;
+            }
+        }
+        .eng, .kor {
+            li:first-child {
+                font-weight: 600;
+            }
+            aside:first-child {
+                height: 3vh;
+                background-color: $medBlue;
+            }
+            aside:last-child {
+                background-color: #ddd;
+            }
+        }
+        .eng {
+            aside:first-child {
+                width: 50%;
+            }
+            aside:last-child {
+                width: 50%;
+            }
+        }
+        .kor {
+            aside:first-child {
+                width: 100%;
+            }
+        }
+    }
     // gallery
     .works {
-        width: 80%;
+        width: 90%;
         padding: 0;
+        padding-bottom: 10%;
         border-radius: 0;
         background-color: transparent;
         position: relative;
@@ -180,6 +230,8 @@
     }
     .gal {
         width: 100%;
+        background-color: whitesmoke;
+        border-radius: 1vh;
         overflow: hidden;
         position: relative;
         ul {
@@ -190,7 +242,8 @@
             list-style-type: none;
         }
         li {
-            height: 800px;
+            width: 100%;
+            height: calc(100% - 5vh);
             line-height: 800px;
             display: inline-block;
             position: relative;

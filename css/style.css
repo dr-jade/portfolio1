@@ -23,7 +23,7 @@ body {
   display: flex;
 }
 
-h2, h4 {
+h2, h3, h4 {
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -33,6 +33,9 @@ h2, h4 {
     width: 0;
   }
   .close.narrow .arrow {
+    opacity: 0;
+  }
+  .close.narrow footer {
     opacity: 0;
   }
   .close.narrow ~ main {
@@ -109,6 +112,11 @@ h2, h4 {
   nav footer {
     width: 100%;
     min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
     font-size: 14px;
     -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
@@ -143,7 +151,7 @@ h2, h4 {
   }
   main > section {
     width: 90%;
-    padding: 3%;
+    padding: 5% 3%;
     border-radius: 3vh;
     background-color: whitesmoke;
     display: flex;
@@ -229,15 +237,64 @@ h2, h4 {
   .exp figure {
     display: flex;
     flex-direction: column;
+    row-gap: 5vh;
+    align-items: center;
+  }
+  .exp figcaption {
+    display: flex;
+    flex-direction: column;
     row-gap: 1vh;
     align-items: center;
   }
   .exp img {
-    height: 40%;
+    width: 15vh;
+  }
+  .lang {
+    row-gap: 5vh;
+  }
+  .lang article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    align-items: flex-start;
+  }
+  .lang article ul {
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    align-items: flex-start;
+  }
+  .lang article li {
+    width: 100%;
+    display: flex;
+    text-transform: capitalize;
+  }
+  .lang .eng li:first-child, .lang .kor li:first-child {
+    font-weight: 600;
+  }
+  .lang .eng aside:first-child, .lang .kor aside:first-child {
+    height: 3vh;
+    background-color: #1597d5;
+  }
+  .lang .eng aside:last-child, .lang .kor aside:last-child {
+    background-color: #ddd;
+  }
+  .lang .eng aside:first-child {
+    width: 50%;
+  }
+  .lang .eng aside:last-child {
+    width: 50%;
+  }
+  .lang .kor aside:first-child {
+    width: 100%;
   }
   .works {
-    width: 80%;
+    width: 90%;
     padding: 0;
+    padding-bottom: 10%;
     border-radius: 0;
     background-color: transparent;
     position: relative;
@@ -247,6 +304,8 @@ h2, h4 {
   }
   .gal {
     width: 100%;
+    background-color: whitesmoke;
+    border-radius: 1vh;
     overflow: hidden;
     position: relative;
   }
@@ -258,7 +317,8 @@ h2, h4 {
     list-style-type: none;
   }
   .gal li {
-    height: 800px;
+    width: 100%;
+    height: calc(100% - 5vh);
     line-height: 800px;
     display: inline-block;
     position: relative;
