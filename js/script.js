@@ -1,3 +1,15 @@
+// lists of images
+let images = [
+    {"src": "./img/works/pic1.png"},
+    {"src": "./img/works/pic2.png"},
+    {"src": "./img/works/pic3.png"},
+    {"src": "./img/works/pic4.png"},
+    {"src": "./img/works/pic5.png"},
+    {"src": "./img/works/pic6.png"},
+    {"src": "./img/works/pic7.png"},
+    {"src": "./img/works/pic8.png"}
+]
+
 //sidebar
 $("nav").attr("height", screen.height);
 $("nav").addClass("close");
@@ -8,6 +20,37 @@ $("#handle").on("click", function(){
     else $("nav").toggleClass("narrow");
 })
 // gallery
+$.each(images, function(idx, val){
+    let aside = $("<aside></aside>");
+    let img = $("<img>");
+    $(img).attr("src", val.src);
+    aside.append(img);
+    $(".gal").append(aside);
+})
+let slideIdx = 1;
+let slides = $(".gal").children("aside");
+function showSlide(n){
+    if(n > slides.length) slideIdx = 1;
+    else if (n < 1) slideIdx = slides.length;
+    for(i = 0; i < slides.length; i++){
+        $(slides[i]).css("display", "none").toggleClass("slide");
+        $(slides[slideIdx-1]).css("display", "flex").toggleClass("slide");
+    }
+    let img = $(slides[slideIdx-1]).children("img")[0];
+    if($(slides[slideIdx-1]).css("display") == "flex" && $(img).height() > $(slides[slideIdx-1]).height()){
+        $(img).css({"top": 0, "position": "absolute"});
+    }
+}
+$(".prev").on("click", function(){
+    showSlide(slideIdx += -1);
+})
+$(".next").on("click", function(){
+    showSlide(slideIdx += 1);
+})
+$(document).ready(function(){
+    showSlide(slideIdx);
+})
+/*
 const jsonLoad = async() => {
     const loadData = new Promise((res)=>{
         let xmlReq = new XMLHttpRequest();
@@ -56,3 +99,4 @@ $.when(jsonLoad()).then(function(){
         showSlide(slideIdx);
     })
 })
+*/
