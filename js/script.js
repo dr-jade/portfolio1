@@ -4,9 +4,7 @@ $("nav").addClass("close");
 if($("body").innerWidth() < 400) $("nav").addClass("narrow");
 $("#handle").on("click", function(){
     if($("body").innerWidth() > 400) $("nav").toggleClass("close");
-    else{
-        $("nav").toggleClass("narrow");
-    }
+    else $("nav").toggleClass("narrow");
 })
 // gallery
 const jsonLoad = async() => {
@@ -21,59 +19,33 @@ const jsonLoad = async() => {
         (data)=>{
             // Add images
             let links = JSON.parse(data);
-            let ul = $("<ul></ul>");
             $.each(links, function(idx, val){
-                let li = $("<li></li>");
-                li.css("background-image", "url("+val.src+")");
-                $(ul).append(li);
-                $(".gal").append(ul);
+                let aside = $("<aside></aside>");
+                let img = $("<img>");
+                $(img).attr("src", val.src);
+                aside.append(img);
+                $(".gal").append(aside);
             })
         },
         (err)=>{console.log(err)}
     )
 }
 $.when(jsonLoad()).then(function(){
-    window.setTimeout(function setSlide(){
-        let slides = $(".gal ul").children("li");
-        let wrapWidth = $(".gal").width();
-        $(slides).css("width", wrapWidth);
-        let slCount = slides.length;
-        let slWidth =  slides.width();
-        let slHeight = slides.height();
-        let sliderWidth = slCount * slWidth;
-        $(".gal").css({"min-width": wrapWidth, "max-width": slWidth, "height": slHeight});
-        $(".gal ul").css({"width": sliderWidth, "margin-left": -slWidth});
-        $(".gal ul li:last-child").prependTo($(".gal ul"));
-        $(".gal ul li:last-child").appendTo($(".gal ul"));
-        $(".prev").on("click", function(){
-            $(".gal ul").stop().animate({
-                left: + slWidth
-            }, 700, function(){
-                $(".gal ul li:last-child").prependTo($(".gal ul"));
-                $(".gal ul").css("left", "");
-            })
-        })
-        $(".next").on("click", function(){
-            $(".gal ul").stop().animate({
-                left: - slWidth
-            }, 700, function(){
-                $(".gal ul li:first-child").appendTo($(".gal ul"));
-                $(".gal ul").css("left", "");
-            })
-        })
-        // class observer
-        let nav = $("nav")[0];
-        const options = {
-            attributes: true
+    let slideIdx = 1;
+    let slides = $(".gal").children("aside");
+    function showSlide(n){
+        if(n > slides.length) slideIdx = 1;
+        else if (n < 1) slideIdx = slides.length;
+        for(i = 0; i < slides.length; i++){
+            $(slides[i]).css("display", "none").toggleClass("slide");
         }
-        function callBack(muteList, observer){
-            muteList.forEach(function(mutes){
-                if(mutes.type === "attributes" && mutes.attributeName === "class"){
-                    setSlide();
-                }
-            })
-        }
-        const observer = new MutationObserver(callBack);
-        observer.observe(nav, options);
-    }, 500)
+        $(slides[slideIdx-1]).css("display", "flex").toggleClass("slide");
+    }
+    showSlide(slideIdx);
+    $(".prev").on("click", function(){
+        showSlide(slideIdx += -1);
+    })
+    $(".next").on("click", function(){
+        showSlide(slideIdx += 1);
+    })
 })

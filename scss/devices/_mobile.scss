@@ -1,10 +1,7 @@
 @media (max-width: 400px){
     .close.narrow {
         width: 0;
-        .arrow {
-            opacity: 0;
-        }
-        footer {
+        .arrow, aside, footer {
             opacity: 0;
         }
     }
@@ -35,6 +32,12 @@
         justify-content: space-between;
         transition: all 0.5s ease;
         z-index: 5;
+        aside {
+            min-width: 80px;
+            height: 50px;
+            @include bgImg('../img/lg.png', contain);
+            transition: all 0.3s ease-in;
+        }
         .arrow {
             min-width: 80px;
             height: 50px;
@@ -232,24 +235,28 @@
         width: 100%;
         background-color: whitesmoke;
         border-radius: 1vh;
+        display: flex;
         overflow: hidden;
         position: relative;
-        ul {
+        aside {
             width: 100%;
             height: 700px;
-            display: inline-block;
-            position: relative;
-            list-style-type: none;
+            display: none;
+            justify-content: center;
+            align-items: center;
         }
-        li {
+        img {
             width: 100%;
-            height: calc(100% - 5vh);
-            line-height: 800px;
-            display: inline-block;
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+        }
+    }
+    .slide {
+        animation: slides 1.5s ease;
+    }
+    @keyframes slides {
+        from{
+            opacity: .4;
+        }to{
+            opacity: 1;
         }
     }
     .prev, .next {

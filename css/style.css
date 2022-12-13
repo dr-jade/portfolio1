@@ -32,10 +32,7 @@ h2, h3, h4 {
   .close.narrow {
     width: 0;
   }
-  .close.narrow .arrow {
-    opacity: 0;
-  }
-  .close.narrow footer {
+  .close.narrow .arrow, .close.narrow aside, .close.narrow footer {
     opacity: 0;
   }
   .close.narrow ~ main {
@@ -67,6 +64,15 @@ h2, h3, h4 {
     justify-content: space-between;
     transition: all 0.5s ease;
     z-index: 5;
+  }
+  nav aside {
+    min-width: 80px;
+    height: 50px;
+    background-image: url("../img/lg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: all 0.3s ease-in;
   }
   nav .arrow {
     min-width: 80px;
@@ -306,25 +312,39 @@ h2, h3, h4 {
     width: 100%;
     background-color: whitesmoke;
     border-radius: 1vh;
+    display: flex;
     overflow: hidden;
     position: relative;
   }
-  .gal ul {
+  .gal aside {
     width: 100%;
     height: 700px;
-    display: inline-block;
-    position: relative;
-    list-style-type: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
   }
-  .gal li {
+  .gal img {
     width: 100%;
-    height: calc(100% - 5vh);
-    line-height: 800px;
-    display: inline-block;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+  }
+  .slide {
+    -webkit-animation: slides 1.5s ease;
+            animation: slides 1.5s ease;
+  }
+  @-webkit-keyframes slides {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slides {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
   }
   .prev, .next {
     top: 50%;
@@ -347,5 +367,16 @@ h2, h3, h4 {
   .next {
     right: 0;
     border-radius: 30px 0 0 30px;
+  }
+}
+@media (min-width: 600px) {
+  .top {
+    top: 30%;
+    right: 0;
+    height: 50px;
+    border-radius: 1vh 0 0 1vh;
+  }
+  .about img {
+    width: 60%;
   }
 }/*# sourceMappingURL=style.css.map */
