@@ -14,7 +14,7 @@ const jsonLoad = async() => {
         xmlReq.onload = () => {
             if(xmlReq.status == 200) res(xmlReq.response);
         }
-        xmlReq.open("GET", "../data/imgSrc.json");
+        xmlReq.open("GET", "./data/imgSrc.json");
         xmlReq.send();
     }).then(
         (data)=>{
@@ -52,5 +52,7 @@ $.when(jsonLoad()).then(function(){
     $(".next").on("click", function(){
         showSlide(slideIdx += 1);
     })
-    showSlide(slideIdx);
+    $(document).ready(function(){
+        showSlide(slideIdx);
+    })
 })
