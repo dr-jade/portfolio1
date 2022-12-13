@@ -39,14 +39,18 @@ $.when(jsonLoad()).then(function(){
         else if (n < 1) slideIdx = slides.length;
         for(i = 0; i < slides.length; i++){
             $(slides[i]).css("display", "none").toggleClass("slide");
+            $(slides[slideIdx-1]).css("display", "flex").toggleClass("slide");
         }
-        $(slides[slideIdx-1]).css("display", "flex").toggleClass("slide");
+        let img = $(slides[slideIdx-1]).children("img")[0];
+        if($(slides[slideIdx-1]).css("display") == "flex" && $(img).height() > $(slides[slideIdx-1]).height()){
+            $(img).css({"top": 0, "position": "absolute"});
+        }
     }
-    showSlide(slideIdx);
     $(".prev").on("click", function(){
         showSlide(slideIdx += -1);
     })
     $(".next").on("click", function(){
         showSlide(slideIdx += 1);
     })
+    showSlide(slideIdx);
 })
