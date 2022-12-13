@@ -14,7 +14,7 @@ const jsonLoad = async() => {
         xmlReq.onload = () => {
             if(xmlReq.status == 200) res(xmlReq.response);
         }
-        xmlReq.open("GET", "./portfolio1/imgSrc.json");
+        xmlReq.open("GET", "./portfolio1/imgSrc.json"); // for github
         xmlReq.send();
     }).then(
         (data)=>{
