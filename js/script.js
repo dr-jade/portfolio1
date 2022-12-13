@@ -2,6 +2,7 @@
 $("nav").attr("height", screen.height);
 $("nav").addClass("close");
 if($("body").innerWidth() < 400) $("nav").addClass("narrow");
+if($("body").innerWidth() > 1000) $("nav").removeClass("close");
 $("#handle").on("click", function(){
     if($("body").innerWidth() > 400) $("nav").toggleClass("close");
     else $("nav").toggleClass("narrow");

@@ -1,0 +1,33 @@
+@media (min-width: 1000px) {
+    .about {
+        img {
+            width: 40%;
+        }
+    }
+    .exp {
+        @include flexCenter;
+        article {
+            width: fit-content;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        h2 {
+            width: 100%;
+        }
+        figure {
+            width: 30%;
+        }
+    }
+    .lang {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        h2 {
+            width: 100%;
+        }
+        article {
+            width: 45%;
+        }
+    }
+}

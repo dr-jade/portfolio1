@@ -244,9 +244,13 @@
             display: none;
             justify-content: center;
             align-items: center;
+            position: relative;
+            overflow: scroll;
         }
         img {
-            width: 100%;
+            top: 0;
+            max-width: 100%;
+            position: absolute;
         }
     }
     .slide {

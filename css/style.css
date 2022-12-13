@@ -322,9 +322,13 @@ h2, h3, h4 {
     display: none;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: scroll;
   }
   .gal img {
-    width: 100%;
+    top: 0;
+    max-width: 100%;
+    position: absolute;
   }
   .slide {
     -webkit-animation: slides 1.5s ease;
@@ -378,5 +382,40 @@ h2, h3, h4 {
   }
   .about img {
     width: 60%;
+  }
+}
+@media (min-width: 1000px) {
+  .about img {
+    width: 40%;
+  }
+  .exp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .exp article {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .exp h2 {
+    width: 100%;
+  }
+  .exp figure {
+    width: 30%;
+  }
+  .lang {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .lang h2 {
+    width: 100%;
+  }
+  .lang article {
+    width: 45%;
   }
 }/*# sourceMappingURL=style.css.map */
