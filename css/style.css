@@ -134,6 +134,7 @@ h2, h3, h4 {
   }
   main {
     width: calc(100% - 350px);
+    padding-bottom: 5%;
     display: flex;
     flex-direction: column;
     row-gap: 5vh;
@@ -300,7 +301,6 @@ h2, h3, h4 {
   .works {
     width: 90%;
     padding: 0;
-    padding-bottom: 10%;
     border-radius: 0;
     background-color: transparent;
     position: relative;
@@ -349,7 +349,7 @@ h2, h3, h4 {
     }
   }
   .prev, .next {
-    top: 50%;
+    top: 45%;
     padding: 16px;
     color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.6);

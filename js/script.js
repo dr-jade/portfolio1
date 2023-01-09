@@ -1,13 +1,13 @@
 // lists of images
 let images = [
     {"src": "./img/works/pic1.png"},
-    {"src": "./img/works/pic2.png"},
-    {"src": "./img/works/pic3.png"},
-    {"src": "./img/works/pic4.png"},
-    {"src": "./img/works/pic5.png"},
-    {"src": "./img/works/pic6.png"},
-    {"src": "./img/works/pic7.png"},
-    {"src": "./img/works/pic8.png"}
+    {"src": "./img/works/pic2.png"}
+    // {"src": "./img/works/pic3.png"},
+    // {"src": "./img/works/pic4.png"},
+    // {"src": "./img/works/pic5.png"},
+    // {"src": "./img/works/pic6.png"},
+    // {"src": "./img/works/pic7.png"},
+    // {"src": "./img/works/pic8.png"}
 ]
 
 //sidebar
